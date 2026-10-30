@@ -1,0 +1,1253 @@
+Nexora websites:
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VELVET ROSE — فيلفيت روز | Flower Atelier Lebanon</title>
+<meta name="description" content="VELVET ROSE — fresh natural bouquets & flower boxes delivered across Lebanon. Order in one tap on WhatsApp. أي تصميم شفته، منعمله إلك." />
+<meta name="theme-color" content="#3A1220" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script>
+  // set language before first paint (no flash)
+  (function(){
+    var l = null;
+    try{ l = localStorage.getItem('vr-lang'); }catch(e){}
+    if(l !== 'ar' && l !== 'en') l = 'ar';
+    document.documentElement.lang = l;
+    document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  })();
+</script>
+<style>
+  :root{
+    --ink:#241017;
+    --velvet:#3A1220;
+    --velvet-2:#52192B;
+    --rose:#C4476B;
+    --rose-2:#A62F55;
+    --rose-soft:#E7A6B4;
+    --blush:#F7E3E6;
+    --cream:#FBF6F1;
+    --paper:#FFFDFB;
+    --gold:#C2A24B;
+    --line:rgba(58,18,32,.14);
+  }
+  *{ -webkit-tap-highlight-color: transparent; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Jost', system-ui, sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+  .display{ font-family:'Cormorant Garamond', Georgia, serif; }
+  html[dir="rtl"] body{ font-family:'Cairo', system-ui, sans-serif; }
+  html[dir="rtl"] .display{ font-family:'Amiri', 'Cormorant Garamond', serif; }
+  /* Arabic must not use letter-spacing (breaks joined script) */
+  html[dir="rtl"] *{ letter-spacing:0 !important; }
+  html[dir="rtl"] .display{ line-height:1.55; }
+
+  ::selection{ background:var(--rose); color:#fff; }
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:#EFE4DE; }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(var(--rose),var(--velvet)); border-radius:99px; }
+
+  /* ---------- grain / paper texture ---------- */
+  body::after{
+    content:''; position:fixed; inset:0; z-index:9997; pointer-events:none;
+    opacity:.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* ---------- preloader ---------- */
+  #veil{ position:fixed; inset:0; z-index:10000; background:var(--velvet); display:grid; place-items:center;
+         transition:opacity .9s cubic-bezier(.7,0,.3,1), visibility .9s; }
+  #veil.done{ opacity:0; visibility:hidden; }
+  /* SAFETY NET: the veil can never stay on screen, even if JS never runs */
+  #veil{ animation:veilKill .9s ease 3.6s forwards; }
+  @keyframes veilKill{ to{ opacity:0; visibility:hidden; } }
+
+  /* phone friendly: lighter blurs, smaller decorative blobs */
+  @media (max-width:820px){
+    [class*="blur-["]{ filter:blur(42px) !important; }
+    #nav.solid{ backdrop-filter:blur(7px); }
+    #petals{ opacity:.75; }
+  }
+  @media (max-width:420px){
+    .display{ font-size:92%; }
+  }
+  #veil .word{ overflow:hidden; }
+  #veil .word span{ display:block; transform:translateY(110%); animation:riseUp 1.1s cubic-bezier(.2,.8,.2,1) forwards; }
+  @keyframes riseUp{ to{ transform:translateY(0); } }
+  .draw path{ stroke-dasharray:600; stroke-dashoffset:600; animation:draw 2.4s ease forwards .2s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  /* ---------- reveal ---------- */
+  .rv{ opacity:0; transform:translateY(34px); transition:opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1); }
+
+.rv.in{ opacity:1; transform:none; }
+  .rv-blur{ filter:blur(10px); }
+  .rv-blur.in{ filter:blur(0); }
+  .rv-l{ opacity:0; transform:translateX(-42px); transition:all 1.1s cubic-bezier(.2,.8,.2,1); }
+  .rv-r{ opacity:0; transform:translateX(42px); transition:all 1.1s cubic-bezier(.2,.8,.2,1); }
+  .rv-l.in,.rv-r.in{ opacity:1; transform:none; }
+  .rv-scale{ opacity:0; transform:scale(.92) translateY(20px); transition:all 1.2s cubic-bezier(.2,.8,.2,1); }
+  .rv-scale.in{ opacity:1; transform:none; }
+  .mask{ overflow:hidden; display:block; }
+  .mask > span{ display:block; transform:translateY(105%); transition:transform 1.15s cubic-bezier(.16,1,.3,1); }
+  .in .mask > span, .mask.in > span{ transform:translateY(0); }
+  /* hero animates just as the veil lifts */
+  #home .mask > span{ transition-delay:.35s; }
+  #home .mask:nth-of-type(2) > span{ transition-delay:.5s; }
+
+  /* ---------- petals canvas ---------- */
+  #petals{ position:fixed; inset:0; z-index:1; pointer-events:none; }
+
+  /* ---------- nav ---------- */
+  #nav{ transition:padding .45s ease, background .45s ease, box-shadow .45s ease, backdrop-filter .45s; }
+  #nav.solid{ background:rgba(251,246,241,.9); -webkit-backdrop-filter:blur(14px) saturate(1.2); backdrop-filter:blur(14px) saturate(1.2); box-shadow:0 1px 0 var(--line), 0 18px 40px -30px rgba(58,18,32,.4); }
+  #scrim{ -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); }
+  .navlink{ position:relative; }
+  .navlink::after{ content:''; position:absolute; inset-inline-start:0; bottom:-4px; height:1px; width:0; background:var(--rose); transition:width .4s cubic-bezier(.2,.8,.2,1); }
+  .navlink:hover::after,.navlink.active::after{ width:100%; }
+
+  #prog{ position:fixed; top:0; inset-inline-start:0; height:2px; width:0; z-index:9999;
+         background:linear-gradient(90deg,var(--gold),var(--rose),var(--velvet)); }
+
+  /* ---------- buttons ---------- */
+  .btn{ position:relative; overflow:hidden; isolation:isolate; }
+  .btn > span{ position:relative; z-index:2; }
+  .btn::before{ content:''; position:absolute; inset:0; z-index:1; transform:translateY(101%); transition:transform .5s cubic-bezier(.2,.8,.2,1); }
+  .btn:hover::before{ transform:translateY(0); }
+  .btn-dark::before{ background:var(--velvet); }
+  .btn-rose::before{ background:var(--rose-2); }
+  .btn-cream::before{ background:var(--blush); }
+  .link-u{ background-image:linear-gradient(currentColor,currentColor); background-size:0% 1px; background-repeat:no-repeat;
+           background-position:0 100%; transition:background-size .45s cubic-bezier(.2,.8,.2,1); }
+  .link-u:hover{ background-size:100% 1px; }
+  html[dir="rtl"] .link-u{ background-position:100% 100%; }
+
+  /* ---------- marquee ---------- */
+  .mq{ display:flex; width:max-content; animation:mq 34s linear infinite; }
+  .mq.rev{ animation-direction:reverse; }
+  .mq:hover{ animation-play-state:paused; }
+  @keyframes mq{ to{ transform:translateX(-50%); } }
+  html[dir="rtl"] .mq{ animation-name:mqr; }
+  @keyframes mqr{ to{ transform:translateX(50%); } }
+
+  /* ---------- products ---------- */
+  .card{ transform-style:preserve-3d; transition:transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .5s, opacity 1.1s cubic-bezier(.2,.8,.2,1); will-change:transform; }
+  .card img{ transition:transform 1.2s cubic-bezier(.2,.8,.2,1), filter .8s; }
+  .card:hover img{ transform:scale(1.09); }
+  .card .glare{ position:absolute; inset:0; background:radial-gradient(320px circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,.45), transparent 62%); opacity:0; transition:opacity .4s; pointer-events:none; }
+  .card:hover .glare{ opacity:1; }
+  .badge-rot{ animation:spin 22s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  /* ---------- chips ---------- */
+  .chip{ transition:all .35s cubic-bezier(.2,.8,.2,1); }
+  .chip.on{ background:var(--velvet); color:var(--blush); border-color:var(--velvet); box-shadow:0 12px 24px -14px rgba(58,18,32,.7); }
+  .swatch.on{ box-shadow:0 0 0 2px var(--cream), 0 0 0 4px var(--velvet); transform:scale(1.12); }
+
+  /* ---------- floating ----------
+
+*/
+  .float-a{ animation:fa 7s ease-in-out infinite; }
+  .float-b{ animation:fb 9s ease-in-out infinite; }
+  @keyframes fa{ 0%,100%{transform:translateY(0) rotate(var(--r,0deg));} 50%{transform:translateY(-18px) rotate(calc(var(--r,0deg) + 1.5deg));} }
+  @keyframes fb{ 0%,100%{transform:translateY(0) rotate(var(--r,0deg));} 50%{transform:translateY(16px) rotate(calc(var(--r,0deg) - 2deg));} }
+
+  .pulse-ring::after{ content:''; position:absolute; inset:0; border-radius:999px; border:1px solid currentColor; animation:pr 2.6s ease-out infinite; }
+  @keyframes pr{ 0%{ transform:scale(1); opacity:.8;} 100%{ transform:scale(1.9); opacity:0;} }
+
+  /* ---------- tray / modal / toast ---------- */
+  .sheet{ transition:transform .6s cubic-bezier(.16,1,.3,1), opacity .5s; }
+  .hidden-sheet{ transform:translateY(120%); opacity:0; pointer-events:none; }
+  .scrim{ opacity:0; pointer-events:none; transition:opacity .5s; }
+  .scrim.on{ opacity:1; pointer-events:auto; }
+  #toast{ left:50%; transform:translate(-50%,160%); transition:transform .6s cubic-bezier(.16,1,.3,1); }
+  #toast.on{ transform:translate(-50%,0); }
+
+  /* faq */
+  .faq-body{ max-height:0; overflow:hidden; transition:max-height .6s cubic-bezier(.16,1,.3,1), opacity .5s; opacity:0; }
+  .faq.open .faq-body{ opacity:1; }
+  .faq.open .faq-plus{ transform:rotate(135deg); }
+  .faq-plus{ transition:transform .5s cubic-bezier(.16,1,.3,1); }
+
+  /* cursor */
+  #cur,#curDot{ position:fixed; top:0; left:0; z-index:9998; pointer-events:none; border-radius:99px; }
+  #cur{ width:34px;height:34px;border:1px solid rgba(196,71,107,.6); transition:width .3s,height .3s,background .3s,opacity .3s; }
+  #curDot{ width:5px;height:5px;background:var(--rose); }
+  @media (hover:none){ #cur,#curDot{ display:none; } }
+
+  .num{ font-variant-numeric:tabular-nums; }
+  .writing-v{ writing-mode:vertical-rl; }
+  .edge{ -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+  @media (prefers-reduced-motion:reduce){ *{ animation:none !important; transition-duration:.01ms !important; } .rv,.rv-l,.rv-r,.rv-scale{ opacity:1 !important; transform:none !important; filter:none !important; } }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ===== PRELOADER ===== -->
+<div id="veil">
+  <div class="text-center px-6">
+    <svg class="draw mx-auto mb-6 w-14 h-14" viewBox="0 0 24 24" fill="none">
+      <path d="M12 21c0-5 3-8 8-8-1 5-4 8-8 8Zm0 0c0-5-3-8-8-8 1 5 4 8 8 8Z" stroke="#E7A6B4" stroke-width="1.1" stroke-linejoin="round"/>
+      <path d="M12 21V9" stroke="#C2A24B" stroke-width="1.1"/>
+      <path d="M12 12c-2.6 0-4.4-1.9-4.4-4.4C7.6 5 9.6 3 12 3s4.4 2 4.4 4.6C16.4 10.1 14.6 12 12 12Z" stroke="#C4476B" stroke-width="1.1"/>
+    </svg>
+    <div class="word"><span class="display text-[#F7E3E6] text-4xl sm:text-5xl font-light tracking-[.34em]">VELVET ROSE</span></div>
+    <div class="word mt-3"><span id="veilSub" class="text-[#E7A6B4]/70 text-[11px] tracking-[.5em] uppercase"></span></div>
+  </div>
+</div>
+
+<div id="prog"></div>
+<canvas id="petals"></canvas>
+<div id="cur"></div><div id="curDot"></div>
+
+<!-- ===== NAV ===== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-[900] py-4 sm:py-6">
+  <div class="max-w-[1400px] mx-auto px-5 sm:px-8 flex items-center justify-between gap-4">
+
+    <a href="#home" class="flex items-center gap-3 group shrink-0">
+      <svg class="w-8 h-8 shrink-0 transition-transform duration-700 group-hover:rotate-[18deg]" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21c0-5 3-8 8-8-1 5-4 8-8 8Zm0 0c0-5-3-8-8-8 1 5 4 8 8 8Z" fill="#A62F55" opacity=".85"/>
+        <path d="M12 21V9" stroke="#C2A24B" stroke-width="1.2"/>
+        <path d="M12 12c-2.6 0-4.4-1.9-4.4-4.4C7.6 5 9.6 3 12 3s4.4 2 4.4 4.6C16.4 10.1 14.6 12 12 12Z" fill="#C4476B"/>
+      </svg>
+      <span class="leading-none">
+        <span class="display block text-[19px] sm:text-[22px] tracking-[.26em] text-[#3A1220]">VELVET ROSE</span>
+        <span data-i18n="tagline" class="block text-[9px] tracking-[.34em]
+
+uppercase text-[#A62F55] mt-1"></span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9 text-[13px] uppercase tracking-[.18em] text-[#3A1220]/80">
+      <a href="#home" class="navlink" data-nav="home" data-i18n="nav1"></a>
+      <a href="#collection" class="navlink" data-nav="collection" data-i18n="nav2"></a>
+      <a href="#custom" class="navlink" data-nav="custom" data-i18n="nav3"></a>
+      <a href="#story" class="navlink" data-nav="story" data-i18n="nav4"></a>
+      <a href="#faq" class="navlink" data-nav="faq" data-i18n="nav5"></a>
+      <a href="#contact" class="navlink" data-nav="contact" data-i18n="nav6"></a>
+    </nav>
+
+    <div class="flex items-center gap-2 sm:gap-3">
+      <!-- language switch -->
+      <div id="langWrap" class="relative flex items-center p-[3px] rounded-full border border-[#3A1220]/15 bg-[#FFFDFB]/70 backdrop-blur">
+        <span id="langInd" class="absolute left-0 top-[3px] bottom-[3px] rounded-full bg-[#3A1220] transition-[transform,width] duration-500" style="width:44px;transform:translateX(0)"></span>
+        <button data-lang="ar" class="langBtn relative z-10 px-3.5 py-1.5 text-[12px] font-semibold rounded-full transition-colors duration-500">ع</button>
+        <button data-lang="en" class="langBtn relative z-10 px-3.5 py-1.5 text-[12px] font-semibold tracking-widest rounded-full transition-colors duration-500">EN</button>
+      </div>
+
+      <a href="#" data-wa="order-cta" class="btn btn-dark hidden sm:inline-flex items-center gap-2 rounded-full bg-[#3A1220] text-[#F7E3E6] px-5 py-2.5 text-[12px] uppercase tracking-[.16em]">
+        <svg class="w-4 h-4 relative z-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.38-.55.05-1.06.24-3.57-.98-2.5-1.22-4.05-3.84-4.18-4.02-.13-.18-.99-1.36-.94-2.57.05-1.2.7-1.77.94-2.02.24-.25.52-.3.7-.3h.5c.16 0 .38-.06.58.45.2.5.7 1.73.76 1.85.06.13.1.27.02.44-.09.18-.5.75-.68.94-.13.14-.27.29-.11.57.16.28.71 1.17 1.52 1.9 1.04.93 1.9 1.22 2.18 1.36.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.06.11.06.68-.19 1.38Z"/></svg>
+        <span data-i18n="navOrder"></span>
+      </a>
+
+      <button id="burger" class="lg:hidden w-11 h-11 grid place-items-center rounded-full border border-[#3A1220]/15 bg-[#FFFDFB]/70">
+        <span class="block w-5 space-y-[5px]">
+          <i class="block h-[1.5px] bg-[#3A1220] transition-all duration-300"></i>
+          <i class="block h-[1.5px] bg-[#3A1220] transition-all duration-300"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div id="mmenu" class="fixed inset-0 z-[950] bg-[#3A1220] translate-y-[-101%] transition-transform duration-[900ms] [transition-timing-function:cubic-bezier(.16,1,.3,1)] lg:hidden">
+  <div class="h-full flex flex-col justify-between p-7 pt-28">
+    <nav class="space-y-2">
+      <a href="#home" class="mmenu-link display block text-[#F7E3E6] text-4xl py-2" data-i18n="nav1"></a>
+      <a href="#collection" class="mmenu-link display block text-[#F7E3E6] text-4xl py-2" data-i18n="nav2"></a>
+      <a href="#custom" class="mmenu-link display block text-[#F7E3E6] text-4xl py-2" data-i18n="nav3"></a>
+      <a href="#story" class="mmenu-link display block text-[#F7E3E6] text-4xl py-2" data-i18n="nav4"></a>
+      <a href="#faq" class="mmenu-link display block text-[#F7E3E6] text-4xl py-2" data-i18n="nav5"></a>
+      <a href="#contact" class="mmenu-link display block text-[#F7E3E6] text-4xl py-2" data-i18n="nav6"></a>
+    </nav>
+    <div class="space-y-4">
+      <a href="#" data-wa="order-cta" class="flex items-center justify-center gap-2 rounded-full bg-[#F7E3E6] text-[#3A1220] py-4 text-sm uppercase tracking-[.2em] font-semibold">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79
+
+1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.38-.55.05-1.06.24-3.57-.98-2.5-1.22-4.05-3.84-4.18-4.02-.13-.18-.99-1.36-.94-2.57.05-1.2.7-1.77.94-2.02.24-.25.52-.3.7-.3h.5c.16 0 .38-.06.58.45.2.5.7 1.73.76 1.85.06.13.1.27.02.44-.09.18-.5.75-.68.94-.13.14-.27.29-.11.57.16.28.71 1.17 1.52 1.9 1.04.93 1.9 1.22 2.18 1.36.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.06.11.06.68-.19 1.38Z"/></svg>
+        <span data-i18n="navOrder"></span>
+      </a>
+      <p class="text-[#E7A6B4]/60 text-center text-xs tracking-[.2em] uppercase">78 862 543 · +961</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="relative flex items-center overflow-hidden pt-32 pb-20" style="min-height:100vh;min-height:100svh">
+  <div class="absolute inset-0 -z-10" style="background:radial-gradient(120% 90% at 78% 8%, #FFF6F4 0%, var(--cream) 45%, #F4E7E4 100%)"></div>
+  <div class="absolute -top-32 -end-32 w-[46rem] h-[46rem] rounded-full blur-[110px] -z-10" style="background:radial-gradient(circle,rgba(231,166,180,.55),transparent 68%)"></div>
+  <div class="absolute bottom-[-12rem] start-[-10rem] w-[38rem] h-[38rem] rounded-full blur-[120px] -z-10" style="background:radial-gradient(circle,rgba(194,71,107,.20),transparent 70%)"></div>
+
+  <div class="max-w-[1400px] mx-auto px-5 sm:px-8 w-full grid lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-7">
+      <div class="rv in flex items-center gap-3 mb-7" id="heroEyebrow">
+        <span class="h-[1px] w-10 bg-[#A62F55]/50"></span>
+        <span data-i18n="heroEyebrow" class="text-[10px] sm:text-[11px] uppercase tracking-[.42em] text-[#A62F55]"></span>
+      </div>
+
+      <h1 class="display text-[#241017] leading-[.92] text-[15vw] sm:text-[11vw] lg:text-[6.6vw] font-light">
+        <span class="mask" data-line="1"><span data-i18n-html="heroL1"></span></span>
+        <span class="mask" data-line="2"><span data-i18n-html="heroL2" class="italic text-[#C4476B]"></span></span>
+      </h1>
+
+      <p data-i18n="heroSub" class="rv mt-8 max-w-[46ch] text-[15px] sm:text-[17px] leading-relaxed text-[#241017]/70" style="transition-delay:.75s"></p>
+
+      <div class="rv mt-10 flex flex-wrap items-center gap-4" style="transition-delay:.9s">
+        <a href="#collection" class="btn btn-rose group inline-flex items-center gap-3 rounded-full bg-[#C4476B] text-white ps-7 pe-6 py-4 text-[12px] uppercase tracking-[.22em] font-medium">
+          <span data-i18n="heroCta1"></span>
+          <svg class="relative z-10 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#" data-wa="order-cta" class="btn group inline-flex items-center gap-3 rounded-full border border-[#3A1220]/25 px-7 py-4 text-[12px] uppercase tracking-[.22em] font-medium text-[#3A1220] hover:text-[#F7E3E6] transition-colors duration-500">
+          <span data-i18n="heroCta2"></span>
+          <span class="relative z-10 w-2 h-2 rounded-full bg-[#25D366] pulse-ring text-[#25D366]"></span>
+        </a>
+      </div>
+
+      <div class="rv mt-14 grid grid-cols-2 sm:grid-cols-4 gap-y-7 gap-x-4 border-t border-[#3A1220]/10 pt-8" style="transition-delay:1.05s">
+        <div><div class="display num text-4xl text-[#3A1220]" data-count="12">0</div><div data-i18n="st1" class="mt-1 text-[10px] uppercase tracking-[.2em] text-[#241017]/50"></div></div>
+        <div><div class="display num text-4xl text-[#3A1220]"><span data-count="4000">0</span>+</div><div data-i18n="st2" class="mt-1 text-[10px] uppercase tracking-[.2em] text-[#241017]/50"></div></div>
+        <div><div class="display num text-4xl text-[#3A1220]" data-count="100">0</div><div data-i18n="st3" class="mt-1 text-[10px] uppercase tracking-[.2em] text-[#241017]/50"></div></div>
+        <div><div class="display num text-4xl text-[#3A1220]" data-count="24">0</div><div data-i18n="st4" class="mt-1
+
+text-[10px] uppercase tracking-[.2em] text-[#241017]/50"></div></div>
+      </div>
+    </div>
+
+    <!-- collage -->
+    <div class="lg:col-span-5 relative h-[26rem] sm:h-[34rem] lg:h-[38rem]" id="collage">
+      <figure class="float-a absolute top-0 end-0 w-[62%] sm:w-[58%] rotate-[6deg] rounded-[2px] bg-white p-[10px] pb-14 shadow-[0_40px_70px_-40px_rgba(58,18,32,.55)]" style="--r:6deg">
+        <img src="https://i.imgur.com/duY25QF.jpeg" alt="200 natural roses with gypsophila" class="w-full h-[16rem] sm:h-[21rem] object-cover" loading="eager">
+        <figcaption class="absolute bottom-3 inset-x-0 text-center text-[9px] uppercase tracking-[.3em] text-[#241017]/45">200 · Roses</figcaption>
+      </figure>
+      <figure class="float-b absolute bottom-0 start-0 w-[54%] sm:w-[52%] rotate-[-7deg] rounded-[2px] bg-white p-[10px] pb-14 shadow-[0_40px_70px_-40px_rgba(58,18,32,.55)]" style="--r:-7deg">
+        <img src="https://i.imgur.com/rQ5uMap.jpeg" alt="Mixed flowers box" class="w-full h-[13rem] sm:h-[17rem] object-cover" loading="lazy">
+        <figcaption class="absolute bottom-3 inset-x-0 text-center text-[9px] uppercase tracking-[.3em] text-[#241017]/45">Flower Box</figcaption>
+      </figure>
+      <div class="absolute -bottom-6 end-2 sm:end-6 w-28 h-28 rounded-full grid place-items-center bg-[#3A1220] text-[#F7E3E6] shadow-2xl">
+        <svg class="badge-rot absolute inset-0 w-full h-full" viewBox="0 0 100 100"><defs><path id="cir" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs>
+          <text font-size="8.4" letter-spacing="2.2" fill="#E7A6B4" font-family="Jost,sans-serif"><textPath href="#cir">HAND TIED · SAME DAY · LEBANON ·</textPath></text>
+        </svg>
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none"><path d="M12 21V9" stroke="#C2A24B" stroke-width="1.2"/><path d="M12 12c-2.6 0-4.4-1.9-4.4-4.4C7.6 5 9.6 3 12 3s4.4 2 4.4 4.6C16.4 10.1 14.6 12 12 12Z" fill="#C4476B"/><path d="M12 21c0-5 3-8 8-8-1 5-4 8-8 8Zm0 0c0-5-3-8-8-8 1 5 4 8 8 8Z" fill="#A62F55" opacity=".8"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <a href="#ticker" class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-[#241017]/40">
+    <span data-i18n="scroll" class="text-[9px] uppercase tracking-[.35em]"></span>
+    <span class="w-[1px] h-12 bg-gradient-to-b from-[#241017]/40 to-transparent"></span>
+  </a>
+</section>
+
+<!-- ===== TICKER ===== -->
+<section id="ticker" class="bg-[#3A1220] py-4 overflow-hidden">
+  <div class="mq edge items-center gap-10 text-[#E7A6B4] text-[11px] sm:text-xs uppercase tracking-[.34em]" id="mqTrack"></div>
+</section>
+
+<!-- ===== BIG CUSTOM NOTE ===== -->
+<section id="custom" class="relative overflow-hidden bg-[#3A1220] text-[#F7E3E6] py-24 sm:py-32">
+  <div class="absolute inset-0 opacity-[.07]" style="background-image:radial-gradient(rgba(255,255,255,.6) 1px, transparent 1px); background-size:26px 26px"></div>
+  <div class="absolute -top-24 start-[-8rem] w-[34rem] h-[34rem] rounded-full blur-[110px]" style="background:radial-gradient(circle,rgba(196,71,107,.45),transparent 70%)"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-14 items-start">
+    <div class="lg:col-span-7">
+      <div class="rv in flex items-center gap-3 mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#C4476B]"></span>
+        <span data-i18n="customEyebrow" class="text-[10px] uppercase tracking-[.42em] text-[#E7A6B4]"></span>
+      </div>
+
+      <h2 class="display text-[9vw] sm:text-[6vw] lg:text-[4.6vw] leading-[1.02] font-light">
+        <span class="mask"><span data-i18n-html="customH1"></span></span>
+        <span class="mask"><span data-i18n-html="customH2" class="italic text-[#E7A6B4]"></span></span>
+      </h2>
+
+      <p data-i18n="customP" class="rv mt-8 text-[15px] sm:text-[17px] leading-[1.85] text-[#F7E3E6]/75 max-w-[54ch]"></p>
+
+      <div class="rv mt-9 flex flex-wrap gap-2.5" id="customChips"></div>
+
+      <a href="#" data-wa="custom" class="btn group mt-10 inline-flex items-center gap-4 rounded-full bg-[#F7E3E6]
+
+text-[#3A1220] ps-8 pe-6 py-5 text-[12px] uppercase tracking-[.22em] font-semibold">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.38-.55.05-1.06.24-3.57-.98-2.5-1.22-4.05-3.84-4.18-4.02-.13-.18-.99-1.36-.94-2.57.05-1.2.7-1.77.94-2.02.24-.25.52-.3.7-.3h.5c.16 0 .38-.06.58.45.2.5.7 1.73.76 1.85.06.13.1.27.02.44-.09.18-.5.75-.68.94-.13.14-.27.29-.11.57.16.28.71 1.17 1.52 1.9 1.04.93 1.9 1.22 2.18 1.36.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.06.11.06.68-.19 1.38Z"/></svg>
+        <span data-i18n="customCta"></span>
+        <svg class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p data-i18n="customSmall" class="rv mt-4 text-[11px] tracking-[.16em] uppercase text-[#E7A6B4]/55"></p>
+    </div>
+
+    <!-- design builder -->
+    <div class="lg:col-span-5 w-full">
+      <div class="rv-scale rounded-[3px] bg-[#FFFDFB] text-[#241017] p-6 sm:p-8 shadow-[0_50px_90px_-50px_rgba(0,0,0,.7)]">
+        <div class="flex items-baseline justify-between gap-4 pb-5 border-b border-[#3A1220]/12">
+          <h3 class="display text-2xl" data-i18n="builderTitle"></h3>
+          <span class="text-[9px] uppercase tracking-[.3em] text-[#A62F55]" data-i18n="builderStep"></span>
+        </div>
+        <p data-i18n="builderNote" class="mt-5 text-[13px] leading-relaxed text-[#241017]/65"></p>
+
+        <div class="mt-6 space-y-5">
+          <div>
+            <div class="text-[10px] uppercase tracking-[.26em] text-[#241017]/45 mb-3" data-i18n="bOcc"></div>
+            <div class="flex flex-wrap gap-2" id="occWrap"></div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-[.26em] text-[#241017]/45 mb-3" data-i18n="bCol"></div>
+            <div class="flex flex-wrap gap-3 items-center" id="colWrap"></div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-[.26em] text-[#241017]/45 mb-3" data-i18n="bBudget"></div>
+            <div class="flex flex-wrap gap-2" id="budWrap"></div>
+          </div>
+        </div>
+
+        <div class="mt-7 p-4 rounded-[2px] bg-[#F7E3E6]/60 border border-[#C4476B]/15">
+          <div class="text-[9px] uppercase tracking-[.28em] text-[#A62F55] mb-1.5" data-i18n="bPreview"></div>
+          <p id="bPreview" class="text-[13px] leading-relaxed text-[#241017]/80"></p>
+        </div>
+
+        <a href="#" id="builderWa" class="btn btn-rose mt-6 flex items-center justify-center gap-3 rounded-full bg-[#C4476B] text-white py-4 text-[12px] uppercase tracking-[.2em] font-semibold">
+          <span data-i18n="bSend"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COLLECTION ===== -->
+<section id="collection" class="relative py-24 sm:py-32 bg-[#FBF6F1]">
+  <div class="max-w-[1400px] mx-auto px-5 sm:px-8">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+      <div>
+        <div class="rv in flex items-center gap-3 mb-5">
+          <span class="h-[1px] w-10 bg-[#A62F55]/50"></span>
+          <span data-i18n="colEyebrow" class="text-[10px] uppercase tracking-[.42em] text-[#A62F55]"></span>
+        </div>
+        <h2 class="display text-[12vw] sm:text-[7vw] lg:text-[4.6vw] leading-[.98] font-light">
+          <span class="mask"><span data-i18n-html="colH1"></span></span>
+        </h2>
+      </div>
+      <p data-i18n="colSub" class="rv max-w-[38ch] text-[14px] leading-relaxed text-[#241017]/60"></p>
+    </div>
+
+    <div class="rv mt-12 flex flex-wrap gap-2.5" id="filters"></div>
+
+    <div id="grid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 sm:gap-x-8"></div>
+
+    <div class="rv mt-16 rounded-[3px] border border-[#3A1220]/12 bg-[#FFFDFB] p-7
+
+sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div class="flex items-start gap-4">
+        <svg class="w-6 h-6 shrink-0 mt-1 text-[#C4476B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v18M5 8l14 8M19 8 5 16"/></svg>
+        <p data-i18n="colNote" class="text-[14px] leading-relaxed text-[#241017]/70 max-w-[62ch]"></p>
+      </div>
+      <a href="#" data-wa="custom" class="btn btn-dark shrink-0 inline-flex items-center gap-3 rounded-full bg-[#3A1220] text-[#F7E3E6] px-6 py-3.5 text-[11px] uppercase tracking-[.2em]"><span data-i18n="colNoteCta"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW TO ORDER ===== -->
+<section class="relative py-24 sm:py-28 overflow-hidden" style="background:linear-gradient(180deg,#FBF6F1,#F4E7E4)">
+  <div class="max-w-[1400px] mx-auto px-5 sm:px-8">
+    <h2 class="display text-center text-[9vw] sm:text-[5vw] lg:text-[3.6vw] font-light"><span class="mask"><span data-i18n-html="howH"></span></span></h2>
+    <div class="mt-16 grid md:grid-cols-3 gap-6" id="steps"></div>
+  </div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="relative py-24 sm:py-32 bg-[#241017] text-[#F7E3E6] overflow-hidden">
+  <div class="absolute top-1/2 -translate-y-1/2 end-[-6rem] w-[36rem] h-[36rem] rounded-full blur-[120px] opacity-40" style="background:radial-gradient(circle,#C4476B,transparent 70%)"></div>
+  <div class="relative max-w-[1400px] mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-5 relative">
+      <div class="rv-l relative rounded-[3px] overflow-hidden">
+        <img src="https://i.imgur.com/MWZHHxd.jpeg" alt="Lilies and roses bouquet by Velvet Rose" class="w-full h-[24rem] sm:h-[32rem] object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#241017]/60 to-transparent"></div>
+      </div>
+      <div class="absolute -bottom-7 -end-4 sm:-end-7 bg-[#F7E3E6] text-[#3A1220] px-6 py-5 rounded-[2px] shadow-2xl">
+        <div class="display text-3xl leading-none" data-i18n="since"></div>
+        <div class="display text-4xl leading-none text-[#C4476B]">2013</div>
+      </div>
+    </div>
+    <div class="lg:col-span-7">
+      <div class="rv in flex items-center gap-3 mb-5">
+        <span class="h-[1px] w-10 bg-[#E7A6B4]/40"></span>
+        <span data-i18n="storyEyebrow" class="text-[10px] uppercase tracking-[.42em] text-[#E7A6B4]"></span>
+      </div>
+      <h2 class="display text-[9vw] sm:text-[5.4vw] lg:text-[3.8vw] leading-[1.04] font-light">
+        <span class="mask"><span data-i18n-html="storyH1"></span></span>
+        <span class="mask"><span data-i18n-html="storyH2" class="italic text-[#E7A6B4]"></span></span>
+      </h2>
+      <p data-i18n="storyP1" class="rv mt-7 text-[15px] leading-[1.9] text-[#F7E3E6]/70 max-w-[56ch]"></p>
+      <p data-i18n="storyP2" class="rv mt-4 text-[15px] leading-[1.9] text-[#F7E3E6]/70 max-w-[56ch]"></p>
+      <div class="rv mt-10 grid sm:grid-cols-3 gap-6" id="values"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="py-20 sm:py-28 bg-[#FBF6F1] overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-5 sm:px-8 mb-12">
+    <h2 class="display text-[9vw] sm:text-[5vw] lg:text-[3.4vw] font-light"><span class="mask"><span data-i18n-html="testH"></span></span></h2>
+  </div>
+  <div class="mq rev edge gap-6 px-6" id="testTrack"></div>
+  <div class="mq edge gap-6 px-6 mt-6" id="testTrack2"></div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="py-24 sm:py-32 bg-[#FFFDFB] border-t border-[#3A1220]/10">
+  <div class="max-w-[1000px] mx-auto px-5 sm:px-8">
+    <div class="text-center mb-14">
+      <div class="rv in flex items-center justify-center gap-3 mb-5">
+        <span class="h-[1px] w-10 bg-[#A62F55]/50"></span>
+        <span data-i18n="faqEyebrow" class="text-[10px] uppercase tracking-[.42em] text-[#A62F55]"></span>
+        <span class="h-[1px] w-10 bg-[#A62F55]/50"></span>
+      </div>
+      <h2 class="display text-[11vw] sm:text-[6vw]
+
+lg:text-[4vw] font-light"><span class="mask"><span data-i18n-html="faqH"></span></span></h2>
+    </div>
+    <div id="faqList" class="divide-y divide-[#3A1220]/12 border-y border-[#3A1220]/12"></div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="relative py-24 sm:py-32 bg-[#3A1220] text-[#F7E3E6] overflow-hidden">
+  <div class="absolute inset-0 opacity-[.06]" style="background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px); background-size:60px 60px"></div>
+  <div class="relative max-w-[1400px] mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-14">
+    <div class="lg:col-span-6">
+      <h2 class="display text-[11vw] sm:text-[6vw] lg:text-[4.2vw] leading-[1] font-light">
+        <span class="mask"><span data-i18n-html="ctH1"></span></span>
+        <span class="mask"><span data-i18n-html="ctH2" class="italic text-[#E7A6B4]"></span></span>
+      </h2>
+      <p data-i18n="ctP" class="rv mt-7 text-[15px] leading-[1.9] text-[#F7E3E6]/70 max-w-[46ch]"></p>
+
+      <a href="tel:+96178862543" class="rv group mt-10 flex items-center gap-5">
+        <span class="w-14 h-14 rounded-full border border-[#E7A6B4]/30 grid place-items-center group-hover:bg-[#F7E3E6] group-hover:text-[#3A1220] transition-all duration-500">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 3 5a1 1 0 0 1 1-1Z"/></svg>
+        </span>
+        <span>
+          <span class="block text-[10px] uppercase tracking-[.3em] text-[#E7A6B4]/70" data-i18n="ctCall"></span>
+          <span class="display block text-3xl sm:text-4xl tracking-wide">78 862 543</span>
+          <span class="block text-[11px] text-[#E7A6B4]/60 tracking-[.2em]">+961 78 862 543</span>
+        </span>
+      </a>
+
+      <a href="#" data-wa="order-cta" class="btn mt-8 inline-flex items-center gap-4 rounded-full bg-[#25D366] text-[#08331A] ps-8 pe-7 py-5 text-[12px] uppercase tracking-[.2em] font-semibold">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.38-.55.05-1.06.24-3.57-.98-2.5-1.22-4.05-3.84-4.18-4.02-.13-.18-.99-1.36-.94-2.57.05-1.2.7-1.77.94-2.02.24-.25.52-.3.7-.3h.5c.16 0 .38-.06.58.45.2.5.7 1.73.76 1.85.06.13.1.27.02.44-.09.18-.5.75-.68.94-.13.14-.27.29-.11.57.16.28.71 1.17 1.52 1.9 1.04.93 1.9 1.22 2.18 1.36.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.06.11.06.68-.19 1.38Z"/></svg>
+        <span data-i18n="ctWa"></span>
+      </a>
+    </div>
+
+    <div class="lg:col-span-6 grid sm:grid-cols-2 gap-4" id="infoCards"></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-[#241017] text-[#F7E3E6]/70 pt-16 pb-8">
+  <div class="max-w-[1400px] mx-auto px-5 sm:px-8">
+    <div class="flex flex-col lg:flex-row justify-between gap-10 pb-12 border-b border-[#F7E3E6]/10">
+      <div class="max-w-sm">
+        <div class="flex items-center gap-3">
+          <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none"><path d="M12 21V9" stroke="#C2A24B" stroke-width="1.2"/><path d="M12 12c-2.6 0-4.4-1.9-4.4-4.4C7.6 5 9.6 3 12 3s4.4 2 4.4 4.6C16.4 10.1 14.6 12 12 12Z" fill="#C4476B"/><path d="M12 21c0-5 3-8 8-8-1 5-4 8-8 8Zm0 0c0-5-3-8-8-8 1 5 4 8 8 8Z" fill="#E7A6B4" opacity=".7"/></svg>
+          <span class="display text-2xl tracking-[.26em] text-[#F7E3E6]">VELVET ROSE</span>
+        </div>
+        <p data-i18n="ftP" class="mt-5 text-[13px] leading-relaxed"></p>
+      </div>
+      <div class="flex flex-wrap gap-14">
+        <div>
+          <div class="text-[10px] uppercase tracking-[.3em] text-[#E7A6B4]/70 mb-4" data-i18n="ftNav"></div>
+          <div class="space-y-2.5 text-[13px]">
+            <a href="#collection" class="block link-u w-fit" data-i18n="nav2"></a>
+            <a
+
+href="#custom" class="block link-u w-fit" data-i18n="nav3"></a>
+            <a href="#story" class="block link-u w-fit" data-i18n="nav4"></a>
+            <a href="#faq" class="block link-u w-fit" data-i18n="nav5"></a>
+          </div>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-[.3em] text-[#E7A6B4]/70 mb-4" data-i18n="ftContact"></div>
+          <div class="space-y-2.5 text-[13px]">
+            <a href="tel:+96178862543" class="block link-u w-fit">+961 78 862 543</a>
+            <a href="#" data-wa="order-cta" class="block link-u w-fit">WhatsApp</a>
+            <span class="block" data-i18n="ftHours"></span>
+            <span class="block" data-i18n="ftArea"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] tracking-[.14em] uppercase text-[#F7E3E6]/40">
+      <span data-i18n="ftRights"></span>
+      <span data-i18n="ftMade"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- floating whatsapp -->
+<a href="#" data-wa="order-cta" id="fab" class="fixed bottom-6 end-6 z-[880] w-14 h-14 rounded-full bg-[#25D366] text-white grid place-items-center shadow-[0_18px_40px_-14px_rgba(37,211,102,.8)] hover:scale-110 transition-transform duration-500">
+  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.38-.55.05-1.06.24-3.57-.98-2.5-1.22-4.05-3.84-4.18-4.02-.13-.18-.99-1.36-.94-2.57.05-1.2.7-1.77.94-2.02.24-.25.52-.3.7-.3h.5c.16 0 .38-.06.58.45.2.5.7 1.73.76 1.85.06.13.1.27.02.44-.09.18-.5.75-.68.94-.13.14-.27.29-.11.57.16.28.71 1.17 1.52 1.9 1.04.93 1.9 1.22 2.18 1.36.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.06.11.06.68-.19 1.38Z"/></svg>
+</a>
+
+<!-- selection tray -->
+<button id="trayBtn" class="fixed bottom-6 start-6 z-[880] flex items-center gap-3 rounded-full bg-[#3A1220] text-[#F7E3E6] ps-5 pe-6 py-4 shadow-2xl hover:bg-[#52192B] transition-colors duration-400">
+  <svg class="w-5 h-5 text-[#E7A6B4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.5-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.5 12 20 12 20Z"/></svg>
+  <span class="text-[11px] uppercase tracking-[.2em]" data-i18n="trayBtn"></span>
+  <span id="trayCount" class="min-w-6 h-6 px-1 grid place-items-center rounded-full bg-[#C4476B] text-[11px] font-bold num">0</span>
+</button>
+
+<div id="scrim" class="scrim fixed inset-0 z-[960] bg-[#241017]/60 backdrop-blur-sm"></div>
+
+<div id="tray" class="sheet hidden-sheet fixed z-[970] inset-x-0 bottom-0 sm:end-6 sm:inset-x-auto sm:bottom-24 sm:w-[26rem] bg-[#FFFDFB] rounded-t-[6px] sm:rounded-[3px] shadow-[0_-30px_80px_-30px_rgba(36,16,23,.6)] flex flex-col" style="max-height:82vh;max-height:82svh">
+  <div class="flex items-center justify-between p-5 border-b border-[#3A1220]/12">
+    <h3 class="display text-2xl" data-i18n="trayTitle"></h3>
+    <button data-close-sheet class="w-9 h-9 grid place-items-center rounded-full hover:bg-[#F7E3E6] transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div id="trayItems" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+  <div class="p-5 border-t border-[#3A1220]/12 space-y-4">
+    <div class="flex items-center justify-between text-sm">
+      <span class="uppercase tracking-[.2em] text-[10px] text-[#241017]/50" data-i18n="trayTotal"></span>
+      <span id="trayTotal" class="display text-3xl">$0</span>
+    </div>
+    <a href="#" id="trayWa" class="flex items-center justify-center gap-3 rounded-full bg-[#25D366] text-[#08331A] py-4 text-[12px] uppercase tracking-[.2em] font-bold"><span data-i18n="traySend"></span></a>
+    <p data-i18n="trayNote" class="text-[11px] text-center text-[#241017]/45 leading-relaxed"></p>
+
+</div>
+</div>
+
+<!-- quick view -->
+<div id="qv" class="sheet hidden-sheet fixed z-[970] inset-x-0 bottom-0 sm:inset-0 sm:bottom-auto sm:grid sm:place-items-center sm:p-6 bg-[#FFFDFB] rounded-t-[6px] sm:rounded-[3px] sm:max-w-4xl sm:w-full overflow-y-auto" style="max-height:92vh;max-height:92svh">
+  <div class="grid sm:grid-cols-2">
+    <div class="relative bg-[#F4E7E4]">
+      <img id="qvImg" src="" alt="" class="w-full h-64 sm:h-full object-cover">
+      <button data-close-sheet class="absolute top-4 end-4 w-10 h-10 grid place-items-center rounded-full bg-[#FFFDFB]/90 hover:bg-[#3A1220] hover:text-[#F7E3E6] transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="p-6 sm:p-9 flex flex-col">
+      <div class="text-[10px] uppercase tracking-[.32em] text-[#A62F55]" id="qvCat"></div>
+      <h3 id="qvName" class="display text-3xl sm:text-4xl mt-3 leading-tight"></h3>
+      <p id="qvDesc" class="mt-4 text-[14px] leading-relaxed text-[#241017]/65"></p>
+      <div class="mt-6 flex items-end gap-3">
+        <span id="qvPrice" class="display text-4xl text-[#C4476B]"></span>
+        <span class="text-[10px] uppercase tracking-[.24em] text-[#241017]/40 mb-2" data-i18n="qvEach"></span>
+      </div>
+
+      <div class="mt-7 flex items-center gap-4">
+        <span class="text-[10px] uppercase tracking-[.24em] text-[#241017]/45" data-i18n="qvQty"></span>
+        <div class="flex items-center rounded-full border border-[#3A1220]/18 overflow-hidden">
+          <button id="qvMinus" class="w-10 h-10 grid place-items-center hover:bg-[#F7E3E6] transition-colors text-lg">−</button>
+          <span id="qvQtyVal" class="w-12 text-center num">1</span>
+          <button id="qvPlus" class="w-10 h-10 grid place-items-center hover:bg-[#F7E3E6] transition-colors text-lg">+</button>
+        </div>
+      </div>
+
+      <div class="mt-auto pt-8 space-y-3">
+        <a href="#" id="qvWa" class="btn btn-rose flex items-center justify-center gap-3 rounded-full bg-[#C4476B] text-white py-4 text-[12px] uppercase tracking-[.2em] font-semibold"><span data-i18n="qvOrder"></span></a>
+        <button id="qvAdd" class="w-full rounded-full border border-[#3A1220]/20 py-4 text-[12px] uppercase tracking-[.2em] hover:bg-[#3A1220] hover:text-[#F7E3E6] transition-colors duration-500"><span data-i18n="qvAdd"></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="fixed z-[990] bottom-6 bg-[#241017] text-[#F7E3E6] px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 text-[13px] max-w-[92vw] text-center"></div>
+
+<noscript>
+  <style>#veil,#petals,#cur,#curDot{ display:none !important; }</style>
+</noscript>
+
+<script>
+/* ============================================================
+   VELVET ROSE — bilingual flower atelier
+   ============================================================ */
+const PHONE = '96178862543';
+const PHONE_DISPLAY = '78 862 543';
+const wa = (msg) => 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
+
+/* ---------- PRODUCTS ---------- */
+const PRODUCTS = [
+  { id:1, img:'https://i.imgur.com/duY25QF.jpeg', price:230, cat:'grand',
+    en:{ n:'200 Natural Roses with Gypsophila', d:'Two hundred fresh natural roses layered with airy gypsophila. The loudest way to say forever.' },
+    ar:{ n:'200 وردة طبيعية مع جبسوفيل', d:'مئتا وردة طبيعية طازجة مع جبسوفيل خفيف. أقوى طريقة لتقول للأبد.' } },
+  { id:2, img:'https://i.imgur.com/lfp1p7n.jpeg', price:70, cat:'bouquet',
+    en:{ n:'60 Natural Roses with a Letter', d:'Sixty natural roses wrapped around the initial of the one you love.' },
+    ar:{ n:'60 وردة طبيعية مع حرف', d:'ستّون وردة طبيعية بلفّة تحمل الحرف الأول من اسم الحبيب.' } },
+  { id:3, img:'https://i.imgur.com/nKC622m.jpeg', price:60, cat:'bouquet',
+    en:{ n:'Rose Bouquet · Gypsophila, Lilies & Chrysanthemums', d:'A mixed bouquet of roses, lilies and chrysanthemums — soft, full and full of texture.' },
+    ar:{ n:'بوكيه ورد مع جبسوفيل وليلي وكريزانتيم', d:'بوكيه مشكّل
+
+من الورد والليلي والكريزانتيم — ناعم، غزير وبملمس راقي.' } },
+  { id:4, img:'https://i.imgur.com/zK40gZt.jpeg', price:60, cat:'bouquet',
+    en:{ n:'Bouquet of 50 Assorted Roses', d:'Fifty roses in a colour story of your choosing — blush, red, peach or mixed.' },
+    ar:{ n:'بوكيه 50 وردة ملونة', d:'خمسون وردة بتدرّج ألوان من اختيارك — بينك، أحمر، بيش أو مشكّل.' } },
+  { id:5, img:'https://i.imgur.com/aTyhxwg.jpeg', price:70, cat:'bouquet',
+    en:{ n:'60 Roses Bouquet with Message Card', d:'Sixty roses with a handwritten card — we write your words in Arabic, English or French.' },
+    ar:{ n:'بوكيه 60 وردة مع كاتبة (رسالة)', d:'ستّون وردة مع كاتبة مكتوبة بخط اليد — بالعربي، بالإنجليزي أو بالفرنسي.' } },
+  { id:6, img:'https://i.imgur.com/DsZ29QD.jpeg', price:100, cat:'grand',
+    en:{ n:'Bouquet of 100 Roses', d:'One hundred roses hand-tied into one generous, unforgettable piece.' },
+    ar:{ n:'بوكيه 100 وردة', d:'مئة وردة مجموعة بيد واحدة بقطعة غزيرة ما بتُنسى.' } },
+  { id:7, img:'https://i.imgur.com/rQ5uMap.jpeg', price:80, cat:'box',
+    en:{ n:'Mixed Flowers Box — Medium', d:'A medium velvet box arranged with a mix of seasonal flowers. Ready to gift, no wrapping needed.' },
+    ar:{ n:'بوكس زهور مشكّلة — حجم وسط', d:'بوكس مخملي بحجم وسط مرتّب بزهور موسمية مشكّلة. جاهز للإهداء بلا تغليف.' } },
+  { id:8, img:'https://i.imgur.com/0qnchvh.jpeg', price:80, cat:'grand',
+    en:{ n:'Bouquet of 80 Roses', d:'Eighty roses in a sculptural wrap — dramatic, elegant, impossible to ignore.' },
+    ar:{ n:'بوكيه 80 وردة', d:'ثمانون وردة بلفّة فنّية — دراماتيكية، أنيقة، ومستحيل تُتجاهل.' } },
+  { id:9, img:'https://i.imgur.com/O332zUx.jpeg', price:70, cat:'box',
+    en:{ n:'Box of 60 Roses', d:'Sixty roses laid in a keepsake box — a gift that stays after the flowers are gone.' },
+    ar:{ n:'بوكس 60 وردة', d:'ستّون وردة مرتّبة ببوكس يبقى بعد الورد — هدية تدوم.' } },
+  { id:10, img:'https://i.imgur.com/MWZHHxd.jpeg', price:60, cat:'bouquet',
+    en:{ n:'Lilies Bouquet — 15 Stems with 10 Roses', d:'Fifteen fragrant lily stems paired with ten roses. Fresh, perfumed and long-lasting.' },
+    ar:{ n:'بوكيه ليلي 15 حبة مع 10 وردات', d:'خمس عشرة ساق ليلي معطّرة مع عشر وردات. طازجة، ريحتها قوية وبتدوم.' } },
+  { id:11, img:'https://i.imgur.com/HAnzoq4.jpeg', price:80, cat:'bouquet',
+    en:{ n:'Velvet Rose Signature Bouquet', d:'Our house signature — the arrangement we make when you say "choose for me".' },
+    ar:{ n:'بوكيه فيلفيت روز المميّز', d:'توقيع البيت — الترتيب اللي منعمله لما تقول لنا "اختاروا عنّي".' } }
+];
+
+/* ---------- TRANSLATIONS ---------- */
+const T = {
+ ar:{
+  tagline:'أتيليه الزهور · لبنان',
+  nav1:'الرئيسية', nav2:'الكوليكشن', nav3:'تصميم خاص', nav4:'قصّتنا', nav5:'أسئلة', nav6:'اتصل',
+  navOrder:'اطلب الآن',
+  heroEyebrow:'ورد طبيعي · يُجمع بنفس اليوم',
+  heroL1:'وردة تقول', heroL2:'أكثر من الكلام',
+  heroSub:'بوكيات وبوكسات زهور طبيعية طازجة، تُجمع بأيدينا بنفس اليوم وتوصل لكل لبنان. اطلب بضغطة واحدة عالواتساب — أو ابعتلنا أي تصميم شفته بأي مكان ومنعمله إلك.',
+  heroCta1:'شوف الكوليكشن', heroCta2:'اطلب عالواتساب',
+  st1:'سنة خبرة', st2:'بوكيه تم توصيله', st3:'تصميم على الطلب', st4:'ساعة باليوم خدمة',
+  scroll:'مرّر',
+  mq:['توصيل بنفس اليوم','ورد طبيعي طازج','أي تصميم تطلبه منعمله','كل لبنان','تغليف فخم مجاناً','كاتبة رسالة بيد','أسعار بالدولار','خدمة ٢٤ ساعة'],
+  customEyebrow:'ملاحظة مهمة جداً',
+  customH1:'شفت تصميم بأي مكان؟', customH2:'نحنا منعمله إلك.',
+  customP:'انستغرام، بينترست، تيك توك، مجلة، أو صورة عاملها عالهاتف — ابعتلنا الصورة وأي شكل، أي لون، أي حجم وأي ميزانية، ومصمّمينا رح يعيدوا تنفيذه أو أحسن منه. منبعتلك صورة النتيجة قبل التوصيل لتكون مرتاح.',
+  customChips:['أي لون','أي حجم','أي ميزانية','أي مناسبة','صورة قبل التوصيل','بدون تغليف أو مع تغليف فخم'],
+  customCta:'ابعتلنا تصميمك عالواتساب',
+  customSmall:'من ردّ خلال دقائق · كل يوم من ٩ صباحاً لـ ١١ مساءً',
+  builderTitle:'صمّم وردتك', builderStep:'تفاعلي',
+  builderNote:'اختار المناسبة واللون والميزانية، ومن تجهّزلك الرسالة جاهزة ترسلها على واتساب بضغطة وحدة.',
+  bOcc:'المناسبة', bCol:'اللون', bBudget:'الميزانية', bPreview:'معاينة الرسالة',
+
+bSend:'ابعت الطلب عالواتساب',
+  occ:['عيد ميلاد','زفاف','ذكرى سنوية','تخرّج','اعتذار','مش سبب — هيك'],
+  col:[['أحمر','#B0233F'],['بينك','#E7A6B4'],['أبيض','#F4F0EC'],['بنفسجي','#8E4B75'],['مشكّل','#C4476B'],['بيتش','#F0B49A']],
+  bud:['٦٠ - ٨٠$','٨٠ - ١٥٠$','١٥٠ - ٣٠٠$','٣٠٠$+'],
+  colEyebrow:'من مجموعة فيلفيت روز',
+  colH1:'الكوليكشن',
+  colSub:'كل قطعة يُجمع بيد يوم الطلب من ورد طبيعي طازج. الأسعار بالدولار الأميركي، والتوصيل داخل لبنان.',
+  filters:[['all','الكل'],['bouquet','بوكيهات'],['box','بوكسات'],['grand','قطع كبيرة']],
+  colNote:'ما لقيت الشكل اللي ببالك؟ أي تصميم شفته بأي مكان — على انستغرام، بينترست أو تيك توك — ابعتلنا الصورة ومنعمله إلك بنفس الأسعار المنطقية.',
+  colNoteCta:'اطلب تصميم مخصص',
+  order:'اطلب على واتساب',
+  add:'أضف للسلة',
+  details:'التفاصيل',
+  howH:'كيف تطلب؟ ٣ خطوات بس.',
+  steps:[
+    ['١','اختار وردك','تصفّح الكوليكشن أو ابعتلنا صورة لأي تصميم عاجبك من أي مكان.'],
+    ['٢','اضغط واتساب','زر واحد بيفتح محادثة جاهزة مع كل التفاصيل — الاسم، السعر والكمية.'],
+    ['٣','نوصلك','نجهّز الورد بنفس اليوم ونبعتلك صورة قبل التوصيل لكل لبنان.']
+  ],
+  storyEyebrow:'من ٢٠١٣', since:'منذ',
+  storyH1:'مولود بلبنان،', storyH2:'مصنوع من الورد.',
+  storyP1:'بدأت فيلفيت روز من طاولة صغيرة بمحل واحد وشغف واحد: ورد طبيعي مرتّب بذوق، ما فيه شي جاهز ولا مكرّر. كل بوكيه بيمرّ من إيدينا قبل ما يوصل عندك.',
+  storyP2:'اليوم منخدم كل لبنان — من بيروت لطرابلس، صيدا، زحلة، جونيه وبعيدة. نفس الورد، نفس الاهتمام بالتفاصيل، ونفس الرسالة: الورد بيوصّل أكتر من الكلام.',
+  values:[['ورد طبيعي بس','ما منستعمل ورد بلاستيكي ولا قديم — كل شي طبيعي وطازج.'],['تغليف فخم','تغليف مخملي وشرائط وأكياس فخمة مع كل طلب مجاناً.'],['توصيل سريع','توصيل بنفس اليوم بكل المناطق اللبنانية.']],
+  testH:'شو بيقولوا عنّا',
+  tests:[
+    ['طلبت بوكيه ١٠٠ وردة لعيد ميلاد ماما، وصل بنفس اليوم وصورة قبل التوصيل. شغل نظيف جداً.','رنا · بيروت'],
+    ['بعتلهم صورة من انستغرام وعملوه أحسن من الصورة. هيدا اللي بخلي الواحد يرجع.','جوزيف · جونيه'],
+    ['أحسن تعامل مع واتساب، يردوا بسرعة وبيرشحوا اللي يناسب ميزانيتك.','سارة · طرابلس'],
+    ['البوكس كان مرتب لدرجة إنّو ما حبيت افتحه. أهل الشغل.','محمّد · صيدا'],
+    ['سعر مقابل جودة ما إلو منافس. بوكيه الـ٦٠ وردة كان مهيب.','لينا · زحلة'],
+    ['طلبت ساعة ١٠ بالليل لعيد ميلاد مفاجئ ولبّوا. شكراً فيلفيت روز.','كارلوس · باترون']
+  ],
+  faqEyebrow:'كل شي بتحب تعرفه',
+  faqH:'أسئلة متكرّرة',
+  faqs:[
+    ['كيف بدي أطلب؟','اضغط على أي زر "اطلب على واتساب" بالموقع. بيفتح محادثة واتساب جاهزة فيها اسم القطعة والسعر — بس اكتب اسمك ومكان التوصيل وبس. أو اتصل مباشرة على 78 862 543.'],
+    ['بتعملوا أي تصميم شفته بأي مكان؟','نعم، وممتاز إنّك سألت. ابعتلنا صورة من انستغرام، بينترست، تيك توك أو أي مكان، ومنعيد تنفيذها بأي لون وأي حجم وأي ميزانية. منبعتلك صورة النتيجة قبل التوصيل.'],
+    ['وين بتوصلوا؟','كل لبنان: بيروت، جبل لبنان، الشمال، البقاع والجنوب. التوصيل بنفس اليوم إذا طلبت قبل الساعة ٥ مساءً.'],
+    ['الأوردر كم بياخد وقت؟','من ساعة لـ ٣ ساعات حسب المنطقة والتصميم. إذا الطلب مستعجل، خبرنا بالواتساب ومنعطيه أولوية.'],
+    ['بتكتبوا رسالة مع الورد؟','نعم، كاتبة مكتوبة بخط اليد بالعربي أو الإنجليزي أو الفرنسي — مجاناً مع كل طلب.'],
+    ['طرق الدفع؟','كاش عند التوصيل، أو تحويل عبر OMT / Whish / بوابة الدفع الإلكتروني. الأسعار كلها بالدولار الأميركي.']
+  ],
+  ctH1:'خلّينا', ctH2:'نسمع منك',
+  ctP:'عندك مناسبة قريبة أو سؤال عن تصميم؟ اكتبلنا على واتساب أو اتصل مباشرة — منردّ بسرعة، ومنساعدك تختار الورد المناسب لميزانيتك.',
+  ctCall:'اتصل بينا',
+  ctWa:'احجز على واتساب',
+  info:[['ساعات العمل','كل يوم · ٩ صباحاً – ١١ مساءً'],['التوصيل','كل المناطق اللبنانية · بنفس اليوم'],['طرق الدفع','كاش · OMT · Whish'],['الأسعار','كل الأسعار بالدولار الأميركي']],
+  ftP:'أتيليه زهور لبناني متخصص بالبوكيات والبوكسات الطبيعية والتصاميم على الطلب. الورد بيوصّل أكتر من الكلام.',
+  ftNav:'الموقع', ftContact:'تواصل',
+  ftHours:'٩ صباحاً – ١١ مساءً', ftArea:'كل لبنان',
+  ftRights:'© ٢٠٢٦ فيلفيت روز · كل الحقوق محفوظة', ftMade:'صُنع بحبّ في لبنان 🇱🇧',
+  trayBtn:'سلة الورد', trayTitle:'طلبي', trayTotal:'المجموع', traySend:'ابعت الطلب على واتساب',
+  trayNote:'منرجع نأكد معك التفاصيل على واتساب قبل التنفيذ.',
+  qvEach:'للقطعة',
+
+qvQty:'الكمية', qvOrder:'اطلب الآن على واتساب', qvAdd:'أضف للسلة',
+  toastAdded:'تمت الإضافة لسلة الورد 🌹', toastRemoved:'تم الحذف من السلة',
+  toastLang:'تم تغيير اللغة إلى العربية',
+  msgOrder:'مرحبا فيلفيت روز 🌹\nحابب أطلب:\n',
+  msgCustom:'مرحبا فيلفيت روز 🌹\nشفت تصميم ورد حابب تعملوه إلي. رح ابعتلك الصورة هون.\n',
+  msgBuilder:'مرحبا فيلفيت روز 🌹\nحابب تصميم خاص:\n',
+  msgTray:'مرحبا فيلفيت روز 🌹\nحابب أطلب:\n',
+  msgTrailer:'\n\nالإجمالي: ', msgTrailer2:'\n\nالاسم: \nمكان التوصيل: \nالتاريخ والوقت: \nملاحظة: ',
+  remove:'حذف', cat:{bouquet:'بوكيه', box:'بوكس', grand:'قطعة كبيرة'},
+  veiled:'صبركن شوي…'
+ },
+ en:{
+  tagline:'Flower Atelier · Lebanon',
+  nav1:'Home', nav2:'Collection', nav3:'Custom Design', nav4:'Our Story', nav5:'FAQ', nav6:'Contact',
+  navOrder:'Order Now',
+  heroEyebrow:'Fresh natural roses · tied the same day',
+  heroL1:'Petals that speak', heroL2:'louder than words',
+  heroSub:'Fresh natural bouquets and flower boxes, hand-tied by us on the same day and delivered anywhere in Lebanon. Order in one tap on WhatsApp — or send us any design you have seen anywhere and we will make it for you.',
+  heroCta1:'Browse the collection', heroCta2:'Order on WhatsApp',
+  st1:'years of craft', st2:'bouquets delivered', st3:'custom designs', st4:'hour daily service',
+  scroll:'scroll',
+  mq:['Same-day delivery','Fresh natural flowers','Any design you saw — we make it','Lebanon-wide','Free luxury wrapping','Handwritten card','Prices in USD','24/7 service'],
+  customEyebrow:'A very important note',
+  customH1:'Saw a design somewhere?', customH2:'We will make it for you.',
+  customP:'Instagram, Pinterest, TikTok, a magazine, or a photo you took with your phone — send us the picture in any shape, any colour, any size and any budget, and our florists will recreate it or make it even better. We send you a photo of the finished piece before delivery, so you are always comfortable.',
+  customChips:['Any colour','Any size','Any budget','Any occasion','Photo before delivery','Plain or luxury wrapping'],
+  customCta:'Send us your design on WhatsApp',
+  customSmall:'We reply within minutes · every day 9am – 11pm',
+  builderTitle:'Design your flowers', builderStep:'interactive',
+  builderNote:'Choose the occasion, colour and budget — we build a ready-made WhatsApp message and you send it in one tap.',
+  bOcc:'Occasion', bCol:'Colour', bBudget:'Budget', bPreview:'Message preview', bSend:'Send request on WhatsApp',
+  occ:['Birthday','Wedding','Anniversary','Graduation','Apology','Just because'],
+  col:[['Red','#B0233F'],['Pink','#E7A6B4'],['White','#F4F0EC'],['Purple','#8E4B75'],['Mixed','#C4476B'],['Peach','#F0B49A']],
+  bud:['$60 – $80','$80 – $150','$150 – $300','$300+'],
+  colEyebrow:'From the Velvet Rose house',
+  colH1:'The Collection',
+  colSub:'Every piece is hand-tied on the day of the order with fresh natural flowers. Prices in US dollars, delivery across Lebanon.',
+  filters:[['all','All'],['bouquet','Bouquets'],['box','Boxes'],['grand','Grand pieces']],
+  colNote:'Cannot find the shape you have in mind? Any design you have seen anywhere — on Instagram, Pinterest or TikTok — send us the picture and we will make it for you at a fair price.',
+  colNoteCta:'Request a custom design',
+  order:'Order on WhatsApp',
+  add:'Add to selection',
+  details:'Details',
+  howH:'How to order? Only 3 steps.',
+  steps:[
+    ['1','Pick your flowers','Browse the collection or send us a picture of any design you love from anywhere.'],
+    ['2','Tap WhatsApp','One button opens a ready chat with all the details — name, price and quantity.'],
+    ['3','We deliver','We tie your flowers the same day and send you a photo before delivery, anywhere in Lebanon.']
+  ],
+  storyEyebrow:'Since 2013', since:'Since',
+  storyH1:'Born in Lebanon,', storyH2:'made of petals.',
+  storyP1:'Velvet Rose started from one small table and one obsession: natural flowers arranged with taste — nothing ready-made, nothing repeated. Every bouquet passes through our hands before it reaches yours.',
+  storyP2:'Today we serve all of Lebanon — from Beirut to Tripoli,
+
+Saida, Zahle, Jounieh and beyond. Same flowers, same attention to detail, same message: flowers say more than words.',
+  values:[['Only natural flowers','No plastic and no old stock — everything is natural and fresh.'],['Luxury wrapping','Velvet wrap, ribbons and premium bags free with every order.'],['Fast delivery','Same-day delivery to every region in Lebanon.']],
+  testH:'What our clients say',
+  tests:[
+    ['Ordered the 100-rose bouquet for my mum\u2019s birthday — delivered the same day with a photo before arrival. Very clean work.','Rana · Beirut'],
+    ['Sent them an Instagram picture and they made it better than the original. That is why I keep coming back.','Joseph · Jounieh'],
+    ['Best WhatsApp service, they answer fast and suggest what fits your budget.','Sara · Tripoli'],
+    ['The box was arranged so beautifully I did not want to open it. Real professionals.','Mohammad · Saida'],
+    ['Price versus quality is unbeatable. The 60-rose bouquet was huge.','Lina · Zahle'],
+    ['Ordered at 10pm for a surprise birthday and they delivered. Thank you Velvet Rose.','Carlos · Batroun']
+  ],
+  faqEyebrow:'Everything you want to know',
+  faqH:'Frequently asked',
+  faqs:[
+    ['How do I place an order?','Tap any “Order on WhatsApp” button on the site. It opens a ready-made WhatsApp chat with the item name and price — just add your name and delivery area. Or call us directly on 78 862 543.'],
+    ['Do you really make any design I saw anywhere?','Yes, and we love that question. Send us a picture from Instagram, Pinterest, TikTok or anywhere, and we will recreate it in any colour, size and budget. We send you a photo of the result before delivery.'],
+    ['Where do you deliver?','All of Lebanon: Beirut, Mount Lebanon, the North, the Bekaa and the South. Same-day delivery if you order before 5pm.'],
+    ['How long does an order take?','From 1 to 3 hours depending on the area and the design. If it is urgent, tell us on WhatsApp and we prioritise it.'],
+    ['Can you write a card with the flowers?','Yes — a handwritten card in Arabic, English or French, free with every order.'],
+    ['Payment methods?','Cash on delivery, or transfer via OMT / Whish / online payment. All prices are in US dollars.']
+  ],
+  ctH1:'Let\u2019s', ctH2:'hear from you',
+  ctP:'Have an occasion coming up or a question about a design? Message us on WhatsApp or call directly — we reply fast and help you pick the right flowers for your budget.',
+  ctCall:'Call us',
+  ctWa:'Book on WhatsApp',
+  info:[['Opening hours','Every day · 9am – 11pm'],['Delivery','All Lebanese regions · same day'],['Payment','Cash · OMT · Whish'],['Prices','All prices in US dollars']],
+  ftP:'A Lebanese flower atelier specialised in natural bouquets, flower boxes and made-to-order designs. Flowers say more than words.',
+  ftNav:'Site', ftContact:'Contact',
+  ftHours:'9am – 11pm', ftArea:'All Lebanon',
+  ftRights:'© 2026 Velvet Rose · All rights reserved', ftMade:'Made with love in Lebanon 🇱🇧',
+  trayBtn:'My flowers', trayTitle:'My order', trayTotal:'Total', traySend:'Send order on WhatsApp',
+  trayNote:'We confirm all the details with you on WhatsApp before we start.',
+  qvEach:'each', qvQty:'Quantity', qvOrder:'Order now on WhatsApp', qvAdd:'Add to selection',
+  toastAdded:'Added to your flower selection 🌹', toastRemoved:'Removed',
+  toastLang:'Language switched to English',
+  msgOrder:'Hello Velvet Rose 🌹\nI would like to order:\n',
+  msgCustom:'Hello Velvet Rose 🌹\nI saw a flower design I love and I would like you to make it for me. I will send you the picture here.\n',
+  msgBuilder:'Hello Velvet Rose 🌹\nI would like a custom design:\n',
+  msgTray:'Hello Velvet Rose 🌹\nI would like to order:\n',
+  msgTrailer:'\n\nTotal: ', msgTrailer2:'\n\nName: \nDelivery area: \nDate & time: \nNote: ',
+  remove:'remove', cat:{bouquet:'Bouquet', box:'Flower box', grand:'Grand piece'},
+  veiled:'one moment…'
+ }
+};
+
+/* ---------- STATE ---------- */
+/* storage can be blocked (private mode / file://) — never let it throw */
+function store(k,v){ try{ if(v===undefined) return
+
+localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
+let lang = store('vr-lang') || 'ar';
+if(T[lang] === undefined) lang = 'ar';
+let sel = [];   // {id, qty}
+let filter = 'all';
+let bOcc = 0, bCol = 0, bBud = 0;
+const t = () => T[lang];
+
+/* SAFETY: if anything anywhere fails, the loading veil must still lift */
+window.addEventListener('error', function(){ var v = document.getElementById('veil'); if(v) v.classList.add('done'); });
+window.addEventListener('orientationchange', function(){ setTimeout(moveInd, 350); });
+
+/* ---------- LANGUAGE ---------- */
+function applyLang(){
+  const d = T[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  document.title = lang === 'ar' ? 'فيلفيت روز — أتيليه الزهور في لبنان' : 'VELVET ROSE — Flower Atelier Lebanon';
+
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.textContent = d[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const k = el.getAttribute('data-i18n-html');
+    if (typeof d[k] === 'string') el.innerHTML = d[k];
+  });
+
+  // pill indicator
+  moveInd();
+  document.querySelectorAll('.langBtn').forEach(b=>{
+    const on = b.getAttribute('data-lang') === lang;
+    b.style.color = on ? '#F7E3E6' : '#3A1220';
+    b.style.opacity = on ? '1' : '.55';
+  });
+
+  renderTicker(); renderCustom(); renderFilters(); renderGrid();
+  renderSteps(); renderValues(); renderTests(); renderFaqs(); renderInfo(); renderTray(); updateBuilder();
+  syncWaLinks();
+  document.getElementById('veilSub').textContent = lang === 'ar' ? 'أتيليه الزهور · لبنان' : 'FLOWER ATELIER · LEBANON';
+}
+document.querySelectorAll('.langBtn').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const l = b.getAttribute('data-lang');
+    if (l === lang) return;
+    lang = l; store('vr-lang', l);
+    applyLang(); toast(t().toastLang);
+  });
+});
+function moveInd(){
+  const btn = document.querySelector('.langBtn[data-lang="'+lang+'"]');
+  const wrap = document.getElementById('langWrap'), ind = document.getElementById('langInd');
+  if(!btn  !wrap  !ind) return;
+  const wr = wrap.getBoundingClientRect(), br = btn.getBoundingClientRect();
+  ind.style.width = br.width + 'px';
+  ind.style.transform = 'translateX(' + (br.left - wr.left) + 'px)';
+}
+window.addEventListener('resize', moveInd);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(()=> requestAnimationFrame(moveInd));
+
+/* ---------- RENDERERS ---------- */
+function renderTicker(){
+  const items = t().mq.map(x=>'<span class="flex items-center gap-10"><span>'+x+'</span><span class="text-[#C2A24B]">✦</span></span>').join('');
+  document.getElementById('mqTrack').innerHTML = items + items;
+}
+function renderCustom(){
+  document.getElementById('customChips').innerHTML = t().customChips.map(c=>
+    '<span class="rounded-full border border-[#E7A6B4]/25 px-4 py-2 text-[11px] tracking-[.14em] uppercase text-[#E7A6B4]/85">'+c+'</span>').join('');
+
+  document.getElementById('occWrap').innerHTML = t().occ.map((o,i)=>
+    '<button class="chip px-4 py-2 rounded-full border border-[#3A1220]/18 text-[12px] '+(i===bOcc?'on':'')+'" data-b="occ" data-i="'+i+'">'+o+'</button>').join('');
+  document.getElementById('colWrap').innerHTML = t().col.map((c,i)=>
+    '<button class="swatch w-9 h-9 rounded-full border border-[#3A1220]/15 transition-transform duration-300 '+(i===bCol?'on':'')+'" data-b="col" data-i="'+i+'" style="background:'+c[1]+'" title="'+c[0]+'" aria-label="'+c[0]+'"></button>').join('');
+  document.getElementById('budWrap').innerHTML = t().bud.map((b,i)=>
+    '<button class="chip px-4 py-2 rounded-full border border-[#3A1220]/18 text-[12px] '+(i===bBud?'on':'')+'" data-b="bud" data-i="'+i+'">'+b+'</button>').join('');
+
+  document.querySelectorAll('[data-b]').forEach(b=>{
+    b.onclick = ()=>{
+      const k=b.getAttribute('data-b'), i=+b.getAttribute('data-i');
+      if(k==='occ') bOcc=i; if(k==='col') bCol=i; if(k==='bud') bBud=i;
+
+document.querySelectorAll('[data-b="'+k+'"]').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      updateBuilder();
+    };
+  });
+}
+function updateBuilder(){
+  const d = t();
+  const line = (lang==='ar')
+    ? 'المناسبة: ' + d.occ[bOcc] + ' · اللون: ' + d.col[bCol][0] + ' · الميزانية: ' + d.bud[bBud]
+    : 'Occasion: ' + d.occ[bOcc] + ' · Colour: ' + d.col[bCol][0] + ' · Budget: ' + d.bud[bBud];
+  document.getElementById('bPreview').textContent = line;
+  const msg = d.msgBuilder + line + '\n' + (lang==='ar' ? 'رح ابعتلك الصورة هون.' : 'I will send you the reference picture here.') + d.msgTrailer2;
+  document.getElementById('builderWa').href = wa(msg);
+}
+function renderFilters(){
+  document.getElementById('filters').innerHTML = t().filters.map(f=>
+    '<button class="chip px-5 py-2.5 rounded-full border border-[#3A1220]/18 text-[11px] uppercase tracking-[.18em] '+(f[0]===filter?'on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>').join('');
+  document.querySelectorAll('[data-f]').forEach(b=> b.onclick = ()=>{
+    filter = b.getAttribute('data-f');
+    document.querySelectorAll('[data-f]').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); renderGrid();
+  });
+}
+function cardHTML(p){
+  const d = p[lang];
+  return '<article class="card rv-scale group relative" data-id="'+p.id+'">'+
+    '<div class="relative overflow-hidden rounded-[3px] bg-[#F4E7E4]">'+
+      '<img src="'+p.img+'" alt="'+d.n.replace(/"/g,'')+'" loading="lazy" class="w-full h-[19rem] sm:h-[23rem] object-cover">'+
+      '<span class="glare"></span>'+
+      '<span class="absolute top-3 start-3 rounded-full bg-[#FFFDFB]/92 px-3 py-1.5 text-[10px] uppercase tracking-[.2em] text-[#3A1220]">'+t().cat[p.cat]+'</span>'+
+      '<span class="absolute bottom-3 end-3 display text-2xl text-white drop-shadow-[0_2px_10px_rgba(0,0,0,.55)]">$'+p.price+'</span>'+
+      '<button data-fav="'+p.id+'" class="fav absolute bottom-3 start-3 w-10 h-10 rounded-full bg-[#FFFDFB]/92 grid place-items-center hover:bg-[#3A1220] hover:text-[#F7E3E6] transition-colors">'+
+        '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="'+(sel.some(s=>s.id===p.id)?'currentColor':'none')+'" stroke="currentColor" stroke-width="1.5"><path d="M12 20s-7-4.5-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.5 12 20 12 20Z"/></svg>'+
+      '</button>'+
+    '</div>'+
+    '<div class="pt-5 flex items-start justify-between gap-4">'+
+      '<div class="min-w-0">'+
+        '<h3 class="display text-[22px] sm:text-2xl leading-snug group-hover:text-[#C4476B] transition-colors duration-500">'+d.n+'</h3>'+
+        '<p class="mt-2 text-[13px] leading-relaxed text-[#241017]/55 line-clamp-2">'+d.d+'</p>'+
+      '</div>'+
+      '<button data-qv="'+p.id+'" class="shrink-0 w-10 h-10 rounded-full border border-[#3A1220]/18 grid place-items-center hover:bg-[#3A1220] hover:text-[#F7E3E6] transition-colors duration-400" title="'+t().details+'">'+
+        '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'+
+      '</button>'+
+    '</div>'+
+    '<a href="#" data-order="'+p.id+'" class="btn btn-rose mt-5 flex items-center justify-center gap-3 rounded-full bg-[#C4476B] text-white py-3.5 text-[11px] uppercase tracking-[.2em] font-medium">'+
+      '<svg class="w-4 h-4 relative z-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.38-.55.05-1.06.24-3.57-.98-2.5-1.22-4.05-3.84-4.18-4.02-.13-.18-.99-1.36-.94-2.57.05-1.2.7-1.77.94-2.02.24-.25.52-.3.7-.3h.5c.16 0 .38-.06.58.45.2.5.7 1.73.76 1.85.06.13.1.27.02.44-.09.18-.5.75-.68.94-.13.14-.27.29-.11.57.16.28.71 1.17 1.52 1.9 1.04.93 1.9 1.22 2.18 1.36.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.06.11.06.68-.19 1.38Z"/></svg>'+
+      '<span class="relative z-10">'+t().order+'</span></a>'+
+  '</article>';
+}
+function renderGrid(){
+  const list =
+
+PRODUCTS.filter(p=> filter==='all' || p.cat===filter);
+  const g = document.getElementById('grid');
+  g.innerHTML = list.map(cardHTML).join('');
+  observeAll();
+  g.querySelectorAll('[data-order]').forEach(a=>{
+    const p = PRODUCTS.find(x=>x.id == a.getAttribute('data-order'));
+    a.setAttribute('target','_blank');
+    a.setAttribute('rel','noopener noreferrer');
+    a.href = wa(orderMsg(p,1));
+  });
+  g.querySelectorAll('[data-fav]').forEach(b=> b.onclick = e=>{ e.stopPropagation(); toggleFav(+b.getAttribute('data-fav')); });
+  g.querySelectorAll('[data-qv]').forEach(b=> b.onclick = e=>{ e.stopPropagation(); openQv(+b.getAttribute('data-qv')); });
+  bindTilt();
+}
+function renderSteps(){
+  document.getElementById('steps').innerHTML = t().steps.map((s,i)=>
+    '<div class="rv rv-blur group relative rounded-[3px] border border-[#3A1220]/12 bg-[#FFFDFB] p-8 hover:-translate-y-2 transition-transform duration-500">'+
+      '<div class="flex items-center justify-between">'+
+        '<span class="display text-6xl text-[#3A1220]/12 group-hover:text-[#C4476B]/30 transition-colors duration-500">'+s[0]+'</span>'+
+        '<span class="w-11 h-11 rounded-full bg-[#F7E3E6] grid place-items-center text-[#A62F55]">'+
+          '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'+
+      '</div>'+
+      '<h3 class="display text-3xl mt-6">'+s[1]+'</h3>'+
+      '<p class="mt-3 text-[14px] leading-relaxed text-[#241017]/60">'+s[2]+'</p>'+
+    '</div>').join('');
+  observeAll();
+}
+function renderValues(){
+  document.getElementById('values').innerHTML = t().values.map(v=>
+    '<div class="border-t border-[#F7E3E6]/15 pt-5">'+
+      '<h4 class="display text-2xl text-[#F7E3E6]">'+v[0]+'</h4>'+
+      '<p class="mt-2 text-[13px] leading-relaxed text-[#F7E3E6]/55">'+v[1]+'</p></div>').join('');
+}
+function renderTests(){
+  const card = x => '<div class="shrink-0 w-[19rem] sm:w-[24rem] rounded-[3px] bg-[#FFFDFB] border border-[#3A1220]/10 p-7">'+
+      '<svg class="w-7 h-7 text-[#E7A6B4] mb-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7c-3 0-5 2.2-5 5.2C4 15.5 6.2 18 9.4 18c1 0 1.8-.2 2.4-.5-.6 2.4-2.6 4-5.4 4.4l.4 2c4.6-.7 7.8-4.4 7.8-9.6C14.6 10 12.2 7 9 7Zm10 0c-3 0-5 2.2-5 5.2C14 15.5 16.2 18 19.4 18c1 0 1.8-.2 2.4-.5-.6 2.4-2.6 4-5.4 4.4l.4 2c4.6-.7 7.8-4.4 7.8-9.6C24.6 10 22.2 7 19 7Z"/></svg>'+
+      '<p class="text-[14px] leading-relaxed text-[#241017]/75">'+x[0]+'</p>'+
+      '<div class="mt-5 pt-4 border-t border-[#3A1220]/10 text-[10px] uppercase tracking-[.26em] text-[#A62F55]">'+x[1]+'</div></div>';
+  const a = t().tests.map(card).join(''), b = t().tests.slice().reverse().map(card).join('');
+  document.getElementById('testTrack').innerHTML = a + a;
+  document.getElementById('testTrack2').innerHTML = b + b;
+}
+function renderFaqs(){
+  document.getElementById('faqList').innerHTML = t().faqs.map(f=>
+    '<div class="faq rv">'+
+      '<button class="w-full flex items-start justify-between gap-6 py-6 text-start group">'+
+        '<span class="display text-2xl sm:text-3xl group-hover:text-[#C4476B] transition-colors duration-400">'+f[0]+'</span>'+
+        '<span class="faq-plus shrink-0 w-9 h-9 rounded-full border border-[#3A1220]/18 grid place-items-center mt-1 group-hover:bg-[#3A1220] group-hover:text-[#F7E3E6] transition-colors duration-400">'+
+          '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></span>'+
+      '</button>'+
+      '<div class="faq-body"><p class="pb-7 pe-12 text-[14px] leading-[1.9] text-[#241017]/60 max-w-[70ch]">'+f[1]+'</p></div>'+
+    '</div>').join('');
+  observeAll();
+  document.querySelectorAll('.faq').forEach(f=>{
+    f.querySelector('button').onclick = ()=>{
+      const open = f.classList.contains('open');
+      document.querySelectorAll('.faq').forEach(x=>{ x.classList.remove('open'); x.querySelector('.faq-body').style.maxHeight='0px'; });
+      if(!open){ f.classList.add('open'); const b=f.querySelector('.faq-body');
+
+b.style.maxHeight = b.scrollHeight + 'px'; }
+    };
+  });
+}
+function renderInfo(){
+  document.getElementById('infoCards').innerHTML = t().info.map(i=>
+    '<div class="rv rounded-[3px] border border-[#E7A6B4]/20 bg-[#3A1220]/40 backdrop-blur p-6 hover:bg-[#3A1220]/70 transition-colors duration-500">'+
+      '<div class="text-[9px] uppercase tracking-[.3em] text-[#E7A6B4]/70 mb-3">'+i[0]+'</div>'+
+      '<div class="text-[15px] text-[#F7E3E6]/85 leading-relaxed">'+i[1]+'</div></div>').join('');
+  observeAll();
+}
+
+/* ---------- WHATSAPP MESSAGES ---------- */
+function orderMsg(p, qty){
+  const d = p[lang];
+  return t().msgOrder + '• ' + d.n + ' — $' + p.price + ' × ' + qty + t().msgTrailer + '$' + (p.price*qty) + t().msgTrailer2;
+}
+function waGeneric(){
+  return (lang==='ar')
+    ? 'مرحبا فيلفيت روز 🌹\nحابب أستفسر وأطلب ورد. \n\nالاسم: \nمكان التوصيل: \nالتاريخ والوقت: \nالميزانية: '
+    : 'Hello Velvet Rose 🌹\nI would like to ask about and order flowers.\n\nName: \nDelivery area: \nDate & time: \nBudget: ';
+}
+/* every WhatsApp button becomes a REAL link (href) so phones open the app natively */
+function syncWaLinks(){
+  document.querySelectorAll('[data-wa]').forEach(a=>{
+    const k = a.getAttribute('data-wa');
+    a.setAttribute('target','_blank');
+    a.setAttribute('rel','noopener noreferrer');
+    a.href = wa(k === 'custom' ? t().msgCustom : waGeneric());
+  });
+  ['trayWa','qvWa','builderWa'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el){ el.setAttribute('target','_blank'); el.setAttribute('rel','noopener noreferrer'); }
+  });
+}
+/* fallback used by dynamically built links */
+function openWa(url){
+  try{
+    const a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ a.remove(); }, 4000);
+  }catch(err){ window.location.href = url; }
+}
+
+/* ---------- SELECTION TRAY ---------- */
+function toggleFav(id){
+  const i = sel.findIndex(s=>s.id===id);
+  if(i>-1){ sel.splice(i,1); toast(t().toastRemoved); } else { sel.push({id, qty:1}); toast(t().toastAdded); }
+  renderGrid(); renderTray();
+}
+function renderTray(){
+  const box = document.getElementById('trayItems');
+  document.getElementById('trayCount').textContent = sel.reduce((a,s)=>a+s.qty,0);
+  if(!sel.length){
+    box.innerHTML = '<p class="text-[14px] leading-relaxed text-[#241017]/45 py-10 text-center">'+(lang==='ar'?'سلة الورد فاضية — اضغط على القلب بأي قطعة لتحتفظ فيها.':'Your flower selection is empty — tap the heart on any piece to save it.')+'</p>';
+  } else {
+    box.innerHTML = sel.map(s=>{
+      const p = PRODUCTS.find(x=>x.id===s.id), d = p[lang];
+      return '<div class="flex gap-4 items-center">'+
+        '<img src="'+p.img+'" alt="" class="w-16 h-16 rounded-[2px] object-cover shrink-0">'+
+        '<div class="min-w-0 flex-1">'+
+          '<div class="display text-[17px] leading-snug">'+d.n+'</div>'+
+          '<div class="text-[11px] uppercase tracking-[.18em] text-[#A62F55] mt-1">$'+p.price+'</div>'+
+          '<div class="mt-2 flex items-center gap-2">'+
+            '<button data-tq="'+p.id+'" data-d="-1" class="w-7 h-7 rounded-full border border-[#3A1220]/15 grid place-items-center hover:bg-[#F7E3E6]">−</button>'+
+            '<span class="num text-sm w-6 text-center">'+s.qty+'</span>'+
+            '<button data-tq="'+p.id+'" data-d="1" class="w-7 h-7 rounded-full border border-[#3A1220]/15 grid place-items-center hover:bg-[#F7E3E6]">+</button>'+
+            '<button data-tr="'+p.id+'" class="ms-auto text-[10px] uppercase tracking-[.2em] text-[#241017]/40 hover:text-[#C4476B] transition-colors">'+t().remove+'</button>'+
+          '</div>'+
+        '</div></div>';
+    }).join('');
+    box.querySelectorAll('[data-tq]').forEach(b=> b.onclick = ()=>{
+      const s = sel.find(x=>x.id==b.getAttribute('data-tq'));
+      s.qty = Math.max(1, s.qty + (+b.getAttribute('data-d'))); renderTray(); renderGrid();
+    });
+
+box.querySelectorAll('[data-tr]').forEach(b=> b.onclick = ()=>{
+      sel = sel.filter(x=>x.id != b.getAttribute('data-tr')); renderTray(); renderGrid();
+    });
+  }
+  const total = sel.reduce((a,s)=> a + PRODUCTS.find(p=>p.id===s.id).price * s.qty, 0);
+  document.getElementById('trayTotal').textContent = '$' + total;
+  let msg = t().msgTray;
+  sel.forEach(s=>{ const p=PRODUCTS.find(x=>x.id===s.id); msg += '• ' + p[lang].n + ' — $' + p.price + ' × ' + s.qty + '\n'; });
+  msg += t().msgTrailer + '$' + total + t().msgTrailer2;
+  document.getElementById('trayWa').href = wa(msg);
+}
+document.getElementById('trayBtn').onclick = ()=> openSheet('tray');
+
+/* ---------- SHEETS (tray / quickview) ---------- */
+const scrim = document.getElementById('scrim');
+function openSheet(id){
+  document.querySelectorAll('.sheet').forEach(s=>{ if(s.id!==id) s.classList.add('hidden-sheet'); });
+  document.getElementById(id).classList.remove('hidden-sheet');
+  scrim.classList.add('on'); document.body.style.overflow='hidden';
+}
+function closeSheets(){
+  document.querySelectorAll('.sheet').forEach(s=>s.classList.add('hidden-sheet'));
+  scrim.classList.remove('on'); document.body.style.overflow='';
+}
+scrim.onclick = closeSheets;
+document.querySelectorAll('[data-close-sheet]').forEach(b=> b.onclick = closeSheets);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeSheets(); closeMenu(); } });
+
+/* ---------- QUICK VIEW ---------- */
+let qvId = null, qvQty = 1;
+function openQv(id){
+  qvId = id; qvQty = 1;
+  const p = PRODUCTS.find(x=>x.id===id), d = p[lang];
+  document.getElementById('qvImg').src = p.img;
+  document.getElementById('qvImg').alt = d.n;
+  document.getElementById('qvCat').textContent = t().cat[p.cat];
+  document.getElementById('qvName').textContent = d.n;
+  document.getElementById('qvDesc').textContent = d.d;
+  document.getElementById('qvPrice').textContent = '$' + p.price;
+  document.getElementById('qvQtyVal').textContent = qvQty;
+  document.getElementById('qvWa').href = wa(orderMsg(p,1));
+  openSheet('qv');
+}
+document.getElementById('qvPlus').onclick = ()=>{ qvQty++; syncQv(); };
+document.getElementById('qvMinus').onclick = ()=>{ qvQty = Math.max(1, qvQty-1); syncQv(); };
+function syncQv(){
+  document.getElementById('qvQtyVal').textContent = qvQty;
+  const p = PRODUCTS.find(x=>x.id===qvId);
+  document.getElementById('qvWa').href = wa(orderMsg(p,qvQty));
+}
+document.getElementById('qvAdd').onclick = ()=>{
+  const ex = sel.find(s=>s.id===qvId);
+  if(ex) ex.qty += qvQty; else sel.push({id:qvId, qty:qvQty});
+  renderTray(); renderGrid(); closeSheets(); toast(t().toastAdded);
+};
+
+/* ---------- GLOBAL WA BUTTONS ----------
+   Links are real <a href="https://wa.me/..."> anchors (set in syncWaLinks),
+   so no pop-up blocker or in-app browser can stop them on mobile.        */
+
+/* ---------- TOAST ---------- */
+let toastT;
+function toast(m){
+  const el = document.getElementById('toast');
+  el.textContent = m; el.classList.add('on');
+  clearTimeout(toastT); toastT = setTimeout(()=> el.classList.remove('on'), 2600);
+}
+
+/* ---------- NAV / SCROLL ---------- */
+const nav = document.getElementById('nav');
+addEventListener('scroll', ()=>{
+  nav.classList.toggle('solid', scrollY > 40);
+  const h = document.documentElement.scrollHeight - innerHeight;
+  document.getElementById('prog').style.width = (scrollY / (h||1) * 100) + '%';
+}, {passive:true});
+
+const burger = document.getElementById('burger'), mmenu = document.getElementById('mmenu');
+let menuOpen = false;
+function openMenu(){ menuOpen = true; mmenu.style.transform='translateY(0)'; document.body.style.overflow='hidden'; }
+function closeMenu(){ if(!menuOpen) return; menuOpen=false; mmenu.style.transform='translateY(-101%)'; document.body.style.overflow=''; }
+burger.onclick = ()=> menuOpen ? closeMenu() : openMenu();
+document.querySelectorAll('.mmenu-link').forEach(a=> a.onclick = closeMenu);
+
+/* section highlight */
+const secObs = new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.navlink').forEach(l=>
